@@ -52,8 +52,18 @@ def get_favorite_articles_by_page_view():
 	)
 
 
+def get_category_names():
+	"""Map each Help Category's record name to its display name.
+
+	The record name is fixed at creation (autoname copies category_name), so after the
+	category is renamed in-field only category_name is right for anything a visitor reads.
+	"""
+	return dict(frappe.get_all("Help Category", fields=["name", "category_name"], as_list=True))
+
+
 def get_favorite_articles(favorite_articles):
 	favorite_article_list = []
+	category_names = get_category_names()
 	for article in favorite_articles:
 		description = frappe.utils.strip_html(article.content)
 		if len(description) > 120:
@@ -62,7 +72,7 @@ def get_favorite_articles(favorite_articles):
 			"title": article.title,
 			"description": description,
 			"route": article.route,
-			"category": article.category,
+			"category": category_names.get(article.category) or article.category,
 		}
 		favorite_article_list.append(favorite_article_dict)
 	return favorite_article_list
@@ -70,7 +80,7 @@ def get_favorite_articles(favorite_articles):
 
 def get_help_article_list():
 	help_article_list = []
-	category_list = frappe.get_all("Help Category", fields="name")
+	category_list = frappe.get_all("Help Category", fields=["name", "category_name"])
 	for category in category_list:
 		help_articles = frappe.get_all(
 			"Help Article",
