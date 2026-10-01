@@ -45,13 +45,13 @@ frappe.ui.form.ContactAddressQuickEntryForm = class ContactAddressQuickEntryForm
 				label: __("First Name"),
 				fieldname: "map_to_first_name",
 				fieldtype: "Data",
-				depends_on: "eval:doc.customer_type=='Company' || doc.supplier_type=='Company'",
+				depends_on: "eval:(doc.customer_type && doc.customer_type!='Individual') || doc.supplier_type=='Company'",
 			},
 			{
 				label: __("Last Name"),
 				fieldname: "map_to_last_name",
 				fieldtype: "Data",
-				depends_on: "eval:doc.customer_type=='Company' || doc.supplier_type=='Company'",
+				depends_on: "eval:(doc.customer_type && doc.customer_type!='Individual') || doc.supplier_type=='Company'",
 			},
 
 			{
