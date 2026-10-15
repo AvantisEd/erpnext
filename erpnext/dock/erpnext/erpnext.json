@@ -8,10 +8,10 @@
   {
    "added": 0,
    "hidden": 0,
-   "icon": "sliders-duotone",
-   "link_to": "Setup",
+   "icon": "handshake",
+   "link_to": "CRM",
    "link_type": "Sidebar",
-   "title": "Setup"
+   "title": "CRM"
   },
   {
    "added": 0,
@@ -79,15 +79,7 @@
   },
   {
    "added": 0,
-   "hidden": 1,
-   "icon": "handshake",
-   "link_to": "CRM",
-   "link_type": "Sidebar",
-   "title": "CRM"
-  },
-  {
-   "added": 0,
-   "hidden": 1,
+   "hidden": 0,
    "icon": "headset",
    "link_to": "Support",
    "link_type": "Sidebar",
@@ -100,9 +92,17 @@
    "link_to": "Portal",
    "link_type": "Sidebar",
    "title": "Portal"
+  },
+  {
+   "added": 0,
+   "hidden": 0,
+   "icon": "sliders-duotone",
+   "link_to": "Setup",
+   "link_type": "Sidebar",
+   "title": "Setup"
   }
  ],
- "modified": "2026-10-04 13:00:00.000000",
+ "modified": "2026-10-15 17:30:00.000000",
  "modified_by": "Administrator",
  "name": "erpnext",
  "owner": "Administrator",
